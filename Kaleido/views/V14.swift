@@ -12,6 +12,7 @@ struct V14: View {
     @State var showAlert = false
     @State var color = randomColor()
     @State var kaj = randomKaj()
+    @State var currentKaj = 0
     var colorTimer: Timer?
     var body: some View {
         Button(action: {
@@ -55,7 +56,7 @@ func randomColor() -> Color{
 }
 
 func randomRBGValue() -> Double{
-    return Double.random(in: 0..<0.256)
+    return Double.random(in: 0..<1)
 }
 
 struct LucaView14_Previews: PreviewProvider {
