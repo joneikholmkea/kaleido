@@ -8,14 +8,37 @@
 
 import SwiftUI
 
-struct V22: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct V22: View
+{
+    @State var starButtonFill:Bool = true
+    var body: some View
+    {
+        VStack
+        {
+            Button(action: {self.starButtonFill = !self.starButtonFill})
+            {
+                if self.starButtonFill
+                {
+                    Image(systemName: "star.fill")
+                    .imageScale(.large)
+                    .foregroundColor(.yellow)
+                }
+                else
+                {
+                    Image(systemName: "star")
+                    .imageScale(.large)
+                    .foregroundColor(Color.gray)
+                }
+            }
+        }
+        .frame(width: 60, height: 100, alignment: .center)
     }
 }
 
-struct V22_Previews: PreviewProvider {
-    static var previews: some View {
+struct V22_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
         V22()
     }
 }
