@@ -17,7 +17,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack{
-            LucaView14()
+            V14()
             V16()
             V20()
             V22()
