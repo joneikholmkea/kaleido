@@ -10,7 +10,7 @@ import SwiftUI
 
 struct V20: View {
     var body: some View {
-        Text("Teacher says HI")
+        Image("liveLaughCode")
     }
 }
 
