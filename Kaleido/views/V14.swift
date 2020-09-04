@@ -8,37 +8,58 @@
 
 import SwiftUI
 
-struct LucaView14: View {
+struct V14: View {
     @State var showAlert = false
-    var frog = kaj()
+    @State var color = randomColor()
+    @State var kaj = randomKaj()
+    var colorTimer: Timer?
     var body: some View {
-        VStack{
-            Button(action: {
-                self.showAlert = true
-                }) {
-                    Text(self.frog.name)
-                        .fontWeight(.heavy)
-                        .font(.largeTitle)
-            }.alert(isPresented: $showAlert){
-                Alert(
-                    title: Text(self.frog.text),
-                    message: Text(self.frog.text).font(.largeTitle).bold()
-                )
-            }
-            Text("heya")
+        Button(action: {
+            self.showAlert = true
+            self.color = randomColor()
+            self.kaj = randomKaj()
+            }) {
+                VStack{
+                    Text(self.kaj.icon)
+                    .fontWeight(.heavy)
+                    .font(.largeTitle)
+                    .animation(.linear)
+                    Text(self.kaj.text)
+                }
         }
             .frame(width: 60, height: 120)
-            .background(Color.pink)
+            .background(self.color)
     }
 }
 
-struct kaj{
-    var name = "🐸"
-    var text = "quack"
+func randomKaj() -> Kaj{
+    let kajArray =
+        [
+            Kaj(icon: "🐸", text: "quack"),
+            Kaj(icon: "🐶", text: "vuf"),
+            Kaj(icon: "🐷", text: "oink"),
+            Kaj(icon: "🐝", text: "bzz"),
+            Kaj(icon: "🐙", text: "💦"),
+        ]
+    return kajArray[Int.random(in: 0..<kajArray.count)]
+}
+
+struct Kaj:Identifiable{
+    var id = UUID()
+    var icon:String
+    var text:String
+}
+
+func randomColor() -> Color{
+    return Color.init(red: randomRBGValue(), green: randomRBGValue(), blue: randomRBGValue())
+}
+
+func randomRBGValue() -> Double{
+    return Double.random(in: 0..<0.256)
 }
 
 struct LucaView14_Previews: PreviewProvider {
     static var previews: some View {
-        LucaView14()
+        V14()
     }
 }
