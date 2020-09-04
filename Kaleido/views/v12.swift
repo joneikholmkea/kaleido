@@ -13,7 +13,7 @@ struct v12: View {
     @State private var showAlert = false
     
     var alert: Alert {
-        Alert(title: Text("Oh Hello!"), message: Text("Have a wonderfull day"), dismissButton: .default(Text("Goodbye")))
+        Alert(title: Text("Oh Hello!"), message: Text("Have a wonderful day"), dismissButton: .default(Text("Goodbye")))
     }
     
     var body: some View {
