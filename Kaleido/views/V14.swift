@@ -9,14 +9,11 @@
 import SwiftUI
 
 struct V14: View {
-    @State var showAlert = false
     @State var color = randomColor()
     @State var kaj = randomKaj()
-    @State var currentKaj = 0
-    var colorTimer: Timer?
+    
     var body: some View {
         Button(action: {
-            self.showAlert = true
             self.color = randomColor()
             self.kaj = randomKaj()
             }) {
